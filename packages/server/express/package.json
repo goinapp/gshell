@@ -1,17 +1,17 @@
 {
-  "name": "@gshell/core",
+  "name": "@gshell/express",
   "version": "0.0.0",
-  "description": "Base package for gshell",
-  "author": "gshell <contact@gshell.app>",
+  "description": "> TODO: description",
+  "author": "Carlos Rodríguez <carlos@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
   "license": "MIT",
   "main": "src/index.ts",
   "directories": {
-    "src": "src",
+    "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "lib"
   ],
   "repository": {
     "type": "git",
