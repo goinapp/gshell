@@ -3,7 +3,7 @@ import * as Transport from "winston-transport";
 import { LoggingWinston } from "@google-cloud/logging-winston";
 import winston = require("winston");
 import { Format } from "logform";
-import { IGLogger, IGLoggerOptions } from '@gshell/types';
+import { IGLogger } from '@gshell/types';
 
 export default class GWinston implements IGLogger {
 
