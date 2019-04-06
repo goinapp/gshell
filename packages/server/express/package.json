@@ -1,11 +1,11 @@
 {
   "name": "@gshell/express",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: description",
   "author": "Carlos Rodríguez <carlos@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "directories": {
     "src": "src",
     "test": "__tests__"
