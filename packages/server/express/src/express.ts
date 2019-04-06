@@ -4,7 +4,7 @@ import * as express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 
-import { IGServer, IGServerOptions } from "../../../types/server/server";
+import { IGServer, IGServerOptions } from "@gshell/types";
 
 declare type GExpressMiddleware = (req: Request, res: Response, next: NextFunction) => (void | Promise<void>);
 
