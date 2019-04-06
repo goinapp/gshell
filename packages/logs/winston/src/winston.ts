@@ -27,7 +27,7 @@ export default class GWinston implements IGLogger {
     };
   }
 
-  private getTransports(): Transport[] | Transport {
+  private getTransports(): Transport[] {
     switch (process.env.NODE_ENV) {
       case "test":
         return [

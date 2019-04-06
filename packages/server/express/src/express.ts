@@ -1,8 +1,8 @@
 import { Server } from "http";
 import { Application, Router, Request, Response, NextFunction } from "express";
 import * as express from "express";
-import morgan from "morgan";
-import helmet from "helmet";
+import * as morgan from "morgan";
+import * as helmet from "helmet";
 
 import { IGServer, IGServerOptions } from "@gshell/types";
 
@@ -15,13 +15,13 @@ export default class GExpress implements IGServer {
 
   readonly options: IGServerOptions;
 
-  constructor(options: IGServerOptions, middlewares: GExpressMiddleware[]) {
+  constructor(options: IGServerOptions, middlewares: GExpressMiddleware[], morganOptions?: morgan.Options) {
     this.options = options;
 
     this.app = express();
     this.middlewares = middlewares;
 
-    this.app.use(morgan("combined")); // FIXME Add '{ stream:  }' param when we get a logger module
+    this.app.use(morgan("combined", morganOptions));
     this.app.use(helmet());
     this.middlewares.forEach((middleware) => {
       this.app.use(middleware);
