@@ -129,6 +129,7 @@ $RECYCLE.BIN/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+dist/
 
 # Runtime data
 pids

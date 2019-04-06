@@ -1,15 +1,19 @@
 import { IGDatabase, IGDatabaseOptions } from "@gshell/types";
 import { Db, MongoClient } from "mongodb";
 
+interface IGMongoDBOptions extends IGDatabaseOptions {
+  name: string
+}
+
 export default class GMongoDB implements IGDatabase {
 
-  constructor(options: IGDatabaseOptions) {
+  constructor(options: IGMongoDBOptions) {
     this.options = options;
   }
 
   private client: MongoClient;
 
-  readonly options: IGDatabaseOptions;
+  readonly options: IGMongoDBOptions;
 
   public async up() {
     try {
