@@ -20,3 +20,4 @@ declare class GExpress implements IGServer {
 
 declare type GExpressMiddleware = (req: Request, res: Response, next: NextFunction) => (void | Promise<void>);
 
+export { GExpress, GExpressMiddleware };
