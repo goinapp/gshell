@@ -1,6 +1,6 @@
 {
   "name": "@gshell/winston",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: description",
   "author": "Carlos Rodríguez <carlos@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
@@ -30,7 +30,7 @@
     "winston-transport": "4.3.0"
   },
   "devDependencies": {
-    "@gshell/types": "^0.0.1"
+    "@gshell/types": "^0.0.2"
   },
   "gitHead": "90fd77d4edce2a958c6f6fac0f29659e95617404"
 }
