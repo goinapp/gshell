@@ -1,3 +1,4 @@
-import GExpress from "./express";
+import GExpress, { IGExpressRouter } from "./express";
 
-export { GExpress };
+export { IGExpressRouter };
+export default GExpress;

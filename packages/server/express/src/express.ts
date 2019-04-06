@@ -8,6 +8,10 @@ import { IGServer, IGServerOptions } from "@gshell/types";
 
 declare type GExpressMiddleware = (req: Request, res: Response, next: NextFunction) => (void | Promise<void>);
 
+export interface IGExpressRouter {
+  getRouter(): Router;
+}
+
 export default class GExpress implements IGServer {
   private readonly app: Application;
   private readonly middlewares: GExpressMiddleware[];
