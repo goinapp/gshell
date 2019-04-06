@@ -19,11 +19,11 @@ export default class GExpress implements IGServer {
 
   readonly options: IGServerOptions;
 
-  constructor(options: IGServerOptions, middlewares: GExpressMiddleware[], morganOptions?: morgan.Options) {
+  constructor(options: IGServerOptions, middlewares?: GExpressMiddleware[], morganOptions?: morgan.Options) {
     this.options = options;
 
     this.app = express();
-    this.middlewares = middlewares;
+    this.middlewares = middlewares || [];
 
     this.app.use(morgan("combined", morganOptions));
     this.app.use(helmet());

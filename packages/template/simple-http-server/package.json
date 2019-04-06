@@ -1,27 +1,36 @@
 {
-  "name": "@gshell/core",
-  "version": "0.0.2",
-  "description": "Base package for gshell",
-  "author": "gshell <contact@gshell.app>",
+  "name": "@gshell/template-simple-http-server",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Ramon Pans <ramon.pans@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "directories": {
     "src": "src",
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/crodriguezanton/gshell.git"
   },
   "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/crodriguezanton/gshell/issues"
   },
-  "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"
+  "dependencies": {
+    "@gshell/express": "0.0.8",
+    "ts-node": "8.0.3",
+    "typescript": "3.4.2"
+  },
+  "devDependencies": {
+    "@gshell/types": "0.0.3"
+  }
 }

@@ -2,7 +2,7 @@
   "name": "@gshell/express",
   "version": "0.0.6",
   "description": "> TODO: description",
-  "author": "Carlos Rodríguez <carlos@goin.app>",
+  "author": "Ramon Pans <ramon.pans@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
   "license": "MIT",
   "main": "dist/index.js",
