@@ -9,15 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const morgan_1 = require("morgan");
-const helmet_1 = require("helmet");
+const morgan = require("morgan");
+const helmet = require("helmet");
 class GExpress {
-    constructor(options, middlewares) {
+    constructor(options, middlewares, morganOptions) {
         this.options = options;
         this.app = express();
         this.middlewares = middlewares;
-        this.app.use(morgan_1.default("combined")); // FIXME Add '{ stream:  }' param when we get a logger module
-        this.app.use(helmet_1.default());
+        this.app.use(morgan("combined", morganOptions));
+        this.app.use(helmet());
         this.middlewares.forEach((middleware) => {
             this.app.use(middleware);
         });
