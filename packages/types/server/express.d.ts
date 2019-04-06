@@ -3,6 +3,8 @@ import { IGServer, IGServerOptions } from './server';
 
 declare class GExpress implements IGServer {
 
+    constructor(options: IGServerOptions);
+
     private readonly app: Application;
     private readonly middlewares: GExpressMiddleware[];
     private health: void;
