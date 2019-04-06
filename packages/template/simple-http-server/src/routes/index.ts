@@ -1,7 +1,6 @@
 import { Router, Request, Response } from "express";
 import { IGExpressRouter } from "@gshell/express";
 
-// Interface for this?
 class HelloRouter implements IGExpressRouter {
   private readonly router: Router;
 
