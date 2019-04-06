@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/crodriguezanton/gshell/issues"
+  },
+  "devDependencies": {
+    "@types/express": "4.16.1"
   }
 }

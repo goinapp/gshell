@@ -1,5 +1,8 @@
-module.exports = gshell;
 
-function gshell() {
-    // TODO
+class GshellService {
+
+  constructor() {
+
+  }
+
 }
