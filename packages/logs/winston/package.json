@@ -18,6 +18,7 @@
     "url": "git+https://github.com/crodriguezanton/gshell.git"
   },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
@@ -32,5 +33,5 @@
   "devDependencies": {
     "@gshell/types": "^0.0.2"
   },
-  "gitHead": "90fd77d4edce2a958c6f6fac0f29659e95617404"
+  "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"
 }
