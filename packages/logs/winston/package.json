@@ -31,7 +31,7 @@
     "winston-transport": "4.3.0"
   },
   "devDependencies": {
-    "@gshell/types": "^0.0.2"
+    "@gshell/types": "0.0.3"
   },
   "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"
 }
