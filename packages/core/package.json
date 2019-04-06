@@ -1,5 +1,5 @@
 {
-  "name": "gshell",
+  "name": "@gshell/core",
   "version": "0.0.0",
   "description": "Base package for gshell",
   "author": "Carlos Rodríguez <carlos@goin.app>",

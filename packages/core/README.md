@@ -1,11 +1,11 @@
-# `gshell`
+# `core`
 
 > TODO: description
 
 ## Usage
 
 ```
-const gshell = require('gshell');
+const gshell = require('@gshell/core');
 
 // TODO: DEMONSTRATE API
 ```

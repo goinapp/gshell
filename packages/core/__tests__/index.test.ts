@@ -1,5 +1,3 @@
-'use strict';
-
 const gshell = require('..');
 
 describe('gshell', () => {
