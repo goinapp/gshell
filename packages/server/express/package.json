@@ -1,6 +1,6 @@
 {
   "name": "@gshell/express",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "author": "Carlos Rodríguez <carlos@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
@@ -11,7 +11,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "repository": {
     "type": "git",
