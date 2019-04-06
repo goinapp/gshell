@@ -1,6 +1,6 @@
 {
   "name": "@gshell/mongodb",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "Carlos Rodríguez <carlos@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
@@ -24,7 +24,7 @@
     "url": "https://github.com/crodriguezanton/gshell/issues"
   },
   "dependencies": {
-    "mongodb": "3.2.3",
-    "@gshell/types": "0.0.0"
+    "@gshell/types": "^0.0.1",
+    "mongodb": "3.2.3"
   }
 }
