@@ -5,14 +5,7 @@
   "author": "Carlos Rodríguez <carlos@goin.app>",
   "homepage": "https://github.com/crodriguezanton/gshell#readme",
   "license": "MIT",
-  "main": "lib/types.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/crodriguezanton/gshell.git"
@@ -29,5 +22,5 @@
   "dependencies": {
     "@types/mongodb": "^3.1.22"
   },
-  "gitHead": "cdc6c5a663614572ac92dee1cf5330e2f1199c3d"
+  "gitHead": "90fd77d4edce2a958c6f6fac0f29659e95617404"
 }
