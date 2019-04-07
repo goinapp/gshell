@@ -42,7 +42,8 @@ export default class UserManager {
   static updateUser = async (userId: string, userData: IUserData): Promise<boolean> => {
     const result = await UserManager.db
       .collection(UserManager.collection)
-      .updateOne({ _id: new ObjectId(userId) }, userData, { upsert: false });
+      .updateOne({ _id: new ObjectId(userId) }, { $set: userData }, { upsert: false });
+    console.log("Result", result);
     return result.modifiedCount === 1;
   };
 
