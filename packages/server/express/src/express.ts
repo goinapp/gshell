@@ -8,6 +8,11 @@ import { IGServer, IGServerOptions } from "@gshell/types";
 
 declare type GExpressMiddleware = (req: Request, res: Response, next: NextFunction) => (void | Promise<void>);
 
+export interface IGExpressOptions extends IGServerOptions {
+  middlewares?: GExpressMiddleware[];
+  morganOptions?: morgan.Options;
+}
+
 export interface IGExpressRouter {
   getRouter(): Router;
 }
@@ -17,13 +22,14 @@ export default class GExpress implements IGServer {
   private readonly middlewares: GExpressMiddleware[];
   private server?: Server;
 
-  readonly options: IGServerOptions;
+  readonly options: IGExpressOptions;
 
-  constructor(options: IGServerOptions, middlewares?: GExpressMiddleware[], morganOptions?: morgan.Options) {
+  constructor(options: IGExpressOptions) {
     this.options = options;
+    const { middlewares = [], morganOptions } = options;
 
     this.app = express();
-    this.middlewares = middlewares || [];
+    this.middlewares = middlewares;
 
     this.app.use(morgan("combined", morganOptions));
     this.app.use(helmet());

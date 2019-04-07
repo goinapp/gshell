@@ -1,7 +1,7 @@
 import { IGDatabase, IGDatabaseOptions } from "@gshell/types";
 import { Db, MongoClient } from "mongodb";
 
-interface IGMongoDBOptions extends IGDatabaseOptions {
+export interface IGMongoDBOptions extends IGDatabaseOptions {
   name: string
 }
 
