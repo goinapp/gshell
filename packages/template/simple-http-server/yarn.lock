@@ -12,26 +12,12 @@
     helmet "3.16.0"
     morgan "1.9.1"
 
-"@gshell/types@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@gshell/types/-/types-0.0.3.tgz#464cec659ef5aff9c87f2260a1b4a38f44f001e1"
-  integrity sha512-n0vWLEmXHJthRSm7wDUvQtJE3bljh6VVkt8K3ogXsmK5Ocr26uN4Ph7wv07VJdAq/9udIHX40IHc2eQNC1PoUw==
-  dependencies:
-    "@types/mongodb" "^3.1.22"
-
 "@types/body-parser@*":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.17.0.tgz#9f5c9d9bd04bb54be32d5eb9fc0d8c974e6cf58c"
   integrity sha512-a2+YeUjPkztKJu5aIF2yArYFQQp8d51wZ7DavSHjFuY1mqVgidGyzEQ41JIVNy82fXj8yPgy2vJmfIywgESW6w==
   dependencies:
     "@types/connect" "*"
-    "@types/node" "*"
-
-"@types/bson@*":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/bson/-/bson-4.0.0.tgz#9073772679d749116eb1dfca56f8eaac6d59cc7a"
-  integrity sha512-pq/rqJwJWkbS10crsG5bgnrisL8pML79KlMKQMoQwLUjlPAkrUHMvHJ3oGwE7WHR61Lv/nadMwXVAD2b+fpD8Q==
-  dependencies:
     "@types/node" "*"
 
 "@types/connect@*":
@@ -62,14 +48,6 @@
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.1.tgz#dc488842312a7f075149312905b5e3c0b054c79d"
   integrity sha512-FwI9gX75FgVBJ7ywgnq/P7tw+/o1GUbtP0KzbtusLigAOgIgNISRK0ZPl4qertvXSIE8YbsVJueQ90cDt9YYyw==
-
-"@types/mongodb@^3.1.22":
-  version "3.1.22"
-  resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-3.1.22.tgz#66f96c7acbf7135ce6295a8d6c26f1d97388a84b"
-  integrity sha512-hvNR0txBlJJAy1eZOeIDshW4dnQaC694COou4eHHaMdIcteCfoCQATD7sYNlXxNxfTc1iIbHUi7A8CAhQe08uA==
-  dependencies:
-    "@types/bson" "*"
-    "@types/node" "*"
 
 "@types/node@*":
   version "11.13.0"
