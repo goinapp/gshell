@@ -1,0 +1,27 @@
+{
+  "name": "{{cookiecutter.project_name}}",
+  "version": "0.0.0",
+  "description": "TODO: description",
+  "main": "dist/index.js",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@gshell/express": "0.0.10",
+    "@gshell/mongodb": "0.0.7",
+    "inversify": "5.0.1",
+    "reflect-metadata": "0.1.13"
+  },
+  "devDependencies": {
+    "@gshell/types": "0.0.3"
+  }
+}
