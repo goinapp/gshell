@@ -43,7 +43,6 @@ export default class UserManager {
     const result = await UserManager.db
       .collection(UserManager.collection)
       .updateOne({ _id: new ObjectId(userId) }, { $set: userData }, { upsert: false });
-    console.log("Result", result);
     return result.modifiedCount === 1;
   };
 
