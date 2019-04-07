@@ -12,8 +12,9 @@ const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
 class GExpress {
-    constructor(options, middlewares, morganOptions) {
+    constructor(options) {
         this.options = options;
+        const { middlewares = [], morganOptions } = options;
         this.app = express();
         this.middlewares = middlewares;
         this.app.use(morgan("combined", morganOptions));
