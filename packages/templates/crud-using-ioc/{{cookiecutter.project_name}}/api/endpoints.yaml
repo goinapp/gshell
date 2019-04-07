@@ -1,0 +1,95 @@
+swagger: '2.0'
+info:
+  version: 3.0.1
+  title: {{cookiecutter.project_name}}
+  description: Example endpoints
+host: "{{cookiecutter.project_name}}.endpoints.oval-heuristic-236909.cloud.goog"
+x-google-endpoints:
+  - name: "{{cookiecutter.project_name}}.endpoints.oval-heuristic-236909.cloud.goog"
+    target: "35.195.140.197"
+    allowCors: true
+tags:
+  - name: user
+    description: Profile of the user
+
+paths:
+  /user:
+    get:
+      summary: Get all User Profiles
+      operationId: get:user
+      tags:
+        - user
+      responses:
+        200:
+          description: OK
+      security:
+        - gshell-jwt: []
+    post:
+      summary: Create a User Profile
+      operationId: post:user
+      tags:
+        - user
+      responses:
+        200:
+          description: OK
+      security:
+        - gshell-jwt: []
+  /user/{userid}:
+    get:
+      summary: Get a User Profile
+      operationId: get:user:id
+      tags:
+        - user
+      parameters:
+        - name: userid
+          description: id of the user
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+      security:
+        - gshell-jwt: []
+    patch:
+      summary: Modify a User Profile
+      operationId: patch:user:id
+      tags:
+        - user
+      parameters:
+        - name: userid
+          description: id of the user
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+      security:
+        - gshell-jwt: []
+    delete:
+      summary: Delete a User Profile
+      operationId: delete:user:id
+      tags:
+        - user
+      parameters:
+        - name: userid
+          description: id of the user
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+      security:
+        - gshell-jwt: []
+
+
+securityDefinitions:
+  gshell-jwt:
+    authorizationUrl: ""
+    flow: implicit
+    type: oauth2
+    x-google-issuer: gshell.io
+    x-google-jwks_uri: https://s3.eu-central-1.amazonaws.com/static.goin/certs/publickey
+    x-google-audiences: oval-heuristic-236909

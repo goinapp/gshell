@@ -62,10 +62,7 @@ exports.handler = async function(argv) {
     ]);
 
 
-    if (questions.structure === "Dependency Injection (Recommended)") {
-      const cookiecutter = shell.exec('cookiecutter');
-    } else {
-
-    }
+    const cookiecutter = shell.exec(`cookiecutter /Users/crodriguezanton/Development/hackathon/copenhacks2019/gshell/packages/templates/crud-using-ioc project_name=${projectName} --no-input`);
+    shell.exec(`cd ${projectName} && yarn`)
 
 };

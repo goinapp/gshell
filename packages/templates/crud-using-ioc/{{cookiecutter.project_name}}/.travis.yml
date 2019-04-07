@@ -1,0 +1,38 @@
+language: node_js
+
+node_js:
+  - '10'
+
+matrix:
+  fast_finish: true
+
+install:
+  - npm uninstall typescript --no-save
+  - npm uninstall tslint --no-save
+  - npm install
+
+jobs:
+  include:
+    - stage: "Test"
+      script: 
+        - yarn test
+    - stage: "Quality"
+      language: java
+      branches:
+        only:
+          - master
+      dist: trusty
+      addons:
+        sonarcloud:
+          organization: "crodriguezanton-github"
+          token:
+            secure: "EB3SJNJ20qjmdBYAVb2Z9OpOnLD8Jv0vpWc2RRUXshw3EvDJRkEUHlsM2kr+F9F84DQDvc6UwwVOhS0B4pnrKNJBxEGwSzyN/4mn38iw3a81fQ8D57I5+qDAdh3TM7tgW9lRAe+t2fGzQllz2BcamgIjZzhqoA6+oQoE8879y5F5GX7Ydp/578OJN3XeO3c635ebbh/ttbenMiHnvAT2QXKMiF7Anlvh3XDooo5PLwP1c5n8AeCB8uucSzOU2rOv4DzD4B/f+S2jBr35NKIPbbtqzkiVLMmGmoiyumuVPycXnv4qcqpt0H+DshUpcSKjY5Zc7BW784HuSV7y/MetvZcsghCef0khAKLy84W7k6FSflI/PQ0jyClCg0k/mG9cWUEIICpkYAuB7MmJ9wS2O5Vzue342RsbnR0Tlb2sY4KJt6MaODLeT/MdB27V01ocfR5opRGu3v34i8pvsj89SfglPnAe4mOc6JXQUmxrlKPlWRnBRJo0VXqYrppZjHYHvJBJ/OpPiVARaTHt84cMSnaqCmQ6pYLNqV0eMR4W42KME1ste87dDWQ1QzHMnezHojet6myuOCF3kQvhsCAdQpe7tRHRx+khnWl9f/3XMW4CdZrQ9MtVfhBsbTbBt9RFTbF1dXaUYfx9z0MyI7WeABYA8UXJVOZgBvowrv9XpvY="
+      script:
+        - sonar-scanner
+    - stage: "Build"
+      script: 
+        - yarn build
+
+cache:
+  directories:
+    - node_modules
