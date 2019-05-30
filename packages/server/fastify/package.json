@@ -1,0 +1,38 @@
+{
+  "name": "@gshell/fastify",
+  "version": "0.0.3",
+  "description": "> TODO: description",
+  "author": "Carlos Rodriguez <carlos@goin.app>",
+  "homepage": "https://github.com/crodriguezanton/gshell#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crodriguezanton/gshell.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/crodriguezanton/gshell/issues"
+  },
+  "dependencies": {
+    "fastify": "2.4.1",
+    "helmet": "3.18.0",
+    "morgan": "1.9.1"
+  },
+  "devDependencies": {
+    "@gshell/types": "0.0.3",
+    "@types/express": "4.16.1",
+    "typescript": "3.5.1"
+  },
+  "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"
+}
