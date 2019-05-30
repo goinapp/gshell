@@ -1,7 +1,7 @@
 import GExpress from "@gshell/express";
 import { helloRouter } from "./routes";
 
-const port = 3000;
+const port = 3001;
 
 async function main() { // Yes, main(), because why not?
   try {

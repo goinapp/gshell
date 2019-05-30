@@ -26,7 +26,8 @@
     "url": "https://github.com/crodriguezanton/gshell/issues"
   },
   "dependencies": {
-    "@gshell/express": "0.0.8"
+    "@gshell/express": "0.0.8",
+    "ts-node": "^8.2.0"
   },
   "devDependencies": {
     "@gshell/types": "0.0.3"
