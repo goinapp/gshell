@@ -1,0 +1,20 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/cli/package.json",
+        "packages/database/mongodb/package.json",
+        "packages/examples/crud-express-mongo/package.json",
+        "packages/examples/simple-fastify-server/package.json",
+        "packages/examples/simple-http-server/package.json",
+        "packages/logs/winston/package.json",
+        "packages/server/express/package.json",
+        "packages/server/fastify/package.json",
+        "packages/templates/crud-using-ioc/{{cookiecutter.project_name}}/package.json",
+        "packages/types/package.json",
+        "website/package.json"
+      ]
+    }
+  }
+}
