@@ -26,10 +26,10 @@
   },
   "dependencies": {
     "@gshell/types": "0.0.3",
-    "mongodb": "3.2.3"
+    "mongodb": "3.2.7"
   },
   "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4",
   "devDependencies": {
-    "typescript": "^3.4.2"
+    "typescript": "3.5.2"
   }
 }
