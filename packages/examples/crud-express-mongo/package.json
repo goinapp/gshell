@@ -26,8 +26,8 @@
     "url": "https://github.com/crodriguezanton/gshell/issues"
   },
   "dependencies": {
-    "@gshell/express": "0.0.8",
-    "@gshell/mongodb": "0.0.4"
+    "@gshell/express": "0.0.10",
+    "@gshell/mongodb": "0.0.7"
   },
   "devDependencies": {
     "@gshell/types": "0.0.3"
