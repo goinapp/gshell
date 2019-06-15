@@ -20,8 +20,8 @@
     "@gshell/mongodb": "0.0.7",
     "inversify": "5.0.1",
     "reflect-metadata": "0.1.13",
-    "ts-node": "8.0.3",
-    "typescript": "3.4.2"
+    "ts-node": "8.3.0",
+    "typescript": "3.5.2"
   },
   "devDependencies": {
     "@gshell/types": "0.0.3"
