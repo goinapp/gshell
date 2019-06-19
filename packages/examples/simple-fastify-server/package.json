@@ -26,10 +26,10 @@
     "url": "https://github.com/crodriguezanton/gshell/issues"
   },
   "dependencies": {
-    "@gshell/fastify": "0.0.3",
-    "ts-node": "^8.2.0"
+    "@gshell/fastify": "0.0.12",
+    "ts-node": "8.3.0"
   },
   "devDependencies": {
-    "@gshell/types": "0.0.3"
+    "@gshell/types": "0.1.4"
   }
 }

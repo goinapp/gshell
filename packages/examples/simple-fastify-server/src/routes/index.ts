@@ -1,10 +1,16 @@
 
-import { IGFastifyRouter } from "@gshell/fastify";
+import { GFastifyRouter } from "@gshell/fastify";
 import { FastifyInstance } from "fastify";
 import { GFastifyRequest, GFastifyResponse } from '@gshell/fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 
-class HelloRouter implements IGFastifyRouter {
+class HelloRouter extends GFastifyRouter {
+
+  constructor() {
+    super();
+    this.get("/", this.helloWorld, {});
+    this.get("/:name", this.helloName, {});
+  }
 
   getRouter = (fastify: FastifyInstance<Server, IncomingMessage, ServerResponse>, opts: any, next: Function) => {
 

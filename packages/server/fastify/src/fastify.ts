@@ -2,9 +2,10 @@ import * as fastify from "fastify";
 import * as morgan from "morgan";
 import * as helmet from "helmet";
 
-import { IGServer, IGServerOptions } from "@gshell/types";
+import { IGServer, IGServerOptions, GRoute, HttpMethod, GRouteOptions } from "@gshell/types/server";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import { Http2Server, Http2ServerRequest, Http2ServerResponse } from "http2";
+import { FastifyInstance } from 'fastify';
 
 declare type GFastifyMiddleware = (req, res, next?) => (void | Promise<void>);
 
@@ -17,8 +18,62 @@ export interface IGFastifyOptions extends IGServerOptions {
   morganOptions?: morgan.Options;
 }
 
-export interface IGFastifyRouter {
-  getRouter: (fastify: fastify.FastifyInstance, opts: any, next: Function) => void
+class GRouter<T, K> {
+
+  private _routes: GRoute<T, K>[] = [];
+
+  public route = (method: HttpMethod, url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+    const route:GRoute<T, K> = {method, url, handler, options};
+    this._routes.push(route);
+    return this;
+  }
+
+  public get = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+    return this.route("GET", url, handler, options);
+  }
+
+  public post = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+    return this.route("POST", url, handler, options);
+  }
+
+  public patch = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+    return this.route("PATCH", url, handler, options);
+  }
+
+  public put = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+    return this.route("PUT", url, handler, options);
+  }
+
+  public delete = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+    return this.route("DELETE", url, handler, options);
+  }
+
+  public get routes(): GRoute<T, K>[] {
+    return this.routes
+  };
+}
+
+export class GFastifyRouter {
+
+  routes: GRoute<GFastifyRequest, GFastifyResponse>[];
+
+  constructor(router: GRouter<GFastifyRequest, GFastifyResponse>) {
+    this.routes = router.routes;
+  }
+
+  public registerRoutes = (fastify: FastifyInstance<Server, IncomingMessage, ServerResponse>, opts: any, next: Function) => {
+
+    for (const route of this.routes) {
+      fastify.route({
+        method: route.method,
+        url: route.url,
+        handler: route.handler,
+        ...route.options
+      });
+    }
+    next();
+
+  }
 }
 
 export default class GFastify implements IGServer {
@@ -36,6 +91,28 @@ export default class GFastify implements IGServer {
 
     this.app.use(morgan("combined", morganOptions));
     this.app.use(helmet());
+    this.app.register(require('fastify-swagger'), {
+      exposeRoute: true,
+      routePrefix: '/docs',
+      swagger:  {
+        info: {
+          title: "Test",
+          description: "Test test",
+          version: "1.0.0"
+        },
+        host: 'localhost',
+        schemes: ['http'],
+        consumes: ['application/json'],
+        produces: ['application/json'],
+        securityDefinitions: {
+          apiKey: {
+            type: 'apiKey',
+            name: 'apiKey',
+            in: 'header'
+          }
+        }
+      }
+    })
     this.middlewares.forEach((middleware) => {
       this.app.use(middleware);
     });
@@ -55,8 +132,8 @@ export default class GFastify implements IGServer {
     this.app && await this.app.close();
   }
 
-  public addRouter(params: { route?: string, router: IGFastifyRouter }) {
-    const { route = "/", router } = params;
-    this.app.register(router.getRouter, {prefix: route});
+  public addRouter(route: string, router: GRouter<GFastifyRequest, GFastifyResponse>) {
+    const fastifyRouter = new GFastifyRouter(router);
+    this.app.register(fastifyRouter.registerRoutes, {prefix: route});
   }
 }
