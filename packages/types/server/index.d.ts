@@ -29,7 +29,7 @@ type GRouteOptions = {
 type GRoute<T, K> = {
   method: HttpMethod;
   url: string;
-  handler: (request: T, response: K) => any;
+  handler: (request: T, response: K) => Promise<any>;
   options?: GRouteOptions;
 }
 

@@ -1,9 +1,9 @@
 {
-  "name": "@gshell/express",
-  "version": "0.0.10",
+  "name": "@gshell/amqp",
+  "version": "0.0.1",
   "description": "> TODO: description",
-  "author": "Ramon Pans <ramon.pans@goin.app>",
-  "homepage": "https://github.com/crodriguezanton/gshell#readme",
+  "author": "Sergi Canal <sergi.canal@goin.app>",
+  "homepage": "https://github.com/gointech/gshell#README.md",
   "license": "MIT",
   "main": "dist/index.js",
   "directories": {
@@ -15,24 +15,23 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crodriguezanton/gshell.git"
+    "url": "git+https://github.com/gointech/gshell.git"
   },
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/crodriguezanton/gshell/issues"
+    "url": "https://github.com/gointech/gshell/issues"
   },
   "dependencies": {
-    "express": "4.16.4",
-    "helmet": "3.16.0",
-    "morgan": "1.9.1"
+    "@gshell/gerror": "0.0.5",
+    "@gshell/types": "^0.1.9",
+    "amqplib": "0.5.3"
   },
   "devDependencies": {
-    "@gshell/types": "0.0.3",
-    "@types/express": "4.16.1",
-    "typescript": "^3.4.2"
+    "@types/amqplib": "0.5.12",
+    "typescript": "3.5.2"
   },
   "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"
 }

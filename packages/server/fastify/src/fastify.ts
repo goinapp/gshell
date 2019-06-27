@@ -28,23 +28,23 @@ class GRouter<T, K> {
     return this;
   }
 
-  public get = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+  public get = (url: string, handler: (request: T, response: K) => Promise<any>, options: GRouteOptions): GRouter<T, K> => {
     return this.route("GET", url, handler, options);
   }
 
-  public post = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+  public post = (url: string, handler: (request: T, response: K) => Promise<any>, options: GRouteOptions): GRouter<T, K> => {
     return this.route("POST", url, handler, options);
   }
 
-  public patch = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+  public patch = (url: string, handler: (request: T, response: K) => Promise<any>, options: GRouteOptions): GRouter<T, K> => {
     return this.route("PATCH", url, handler, options);
   }
 
-  public put = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+  public put = (url: string, handler: (request: T, response: K) => Promise<any>, options: GRouteOptions): GRouter<T, K> => {
     return this.route("PUT", url, handler, options);
   }
 
-  public delete = (url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
+  public delete = (url: string, handler: (request: T, response: K) => Promise<any>, options: GRouteOptions): GRouter<T, K> => {
     return this.route("DELETE", url, handler, options);
   }
 
