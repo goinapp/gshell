@@ -60,10 +60,10 @@ export class GFastifyRouter {
     this.routes = router.routes;
   }
 
-  public registerRoutes = (fastify: FastifyInstance<Server, IncomingMessage, ServerResponse>, opts: any, next: Function) => {
+  public registerRoutes = (fastifyInstance: FastifyInstance<Server, IncomingMessage, ServerResponse>, opts: any, next: () => any) => {
 
     for (const route of this.routes) {
-      fastify.route({
+      fastifyInstance.route({
         method: route.method,
         url: route.url,
         handler: route.handler,
@@ -128,7 +128,9 @@ export default class GFastify implements IGServer {
   }
 
   public async down() {
-    this.app && await this.app.close();
+    if (this.app) {
+      await this.app.close();
+    }
   }
 
   public addRouter(route: string, router: GRouter<GFastifyRequest, GFastifyResponse>) {

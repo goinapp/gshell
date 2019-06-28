@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@gshell/types@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@gshell/types/-/types-0.0.3.tgz#464cec659ef5aff9c87f2260a1b4a38f44f001e1"
-  integrity sha512-n0vWLEmXHJthRSm7wDUvQtJE3bljh6VVkt8K3ogXsmK5Ocr26uN4Ph7wv07VJdAq/9udIHX40IHc2eQNC1PoUw==
+"@gshell/types@^0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@gshell/types/-/types-0.1.13.tgz#5aa9cde1afa28c462fb90b3946f6333248164f9a"
+  integrity sha512-9PcUOZDDj25hSx5aPSOiv/A+9x6slVzdVodRr28xptq1wfPRJNqGmfAscF43/PcbRSF8LY2fzmZNaiIAoU9kIQ==
   dependencies:
     "@types/mongodb" "^3.1.22"
 

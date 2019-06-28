@@ -26,12 +26,12 @@
   },
   "dependencies": {
     "fastify": "2.5.0",
-    "fastify-swagger": "^2.4.0",
+    "fastify-swagger": "2.4.0",
     "helmet": "3.18.0",
     "morgan": "1.9.1"
   },
   "devDependencies": {
-    "@gshell/types": "0.1.4",
+    "@gshell/types": "^0.1.13",
     "typescript": "3.5.2"
   },
   "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"

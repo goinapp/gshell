@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "@gshell/types": "0.0.3",
-    "mongodb": "3.2.3"
+    "mongodb": "3.2.3",
+    "mongodb-memory-server": "^5.1.5"
   },
   "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4",
   "devDependencies": {

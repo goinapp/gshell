@@ -51,8 +51,7 @@ export default class GExpress implements IGServer {
     this.server && this.server.close();
   }
 
-  public addRouter(params: { route?: string, router: Router }) {
-    const { route = "/", router } = params;
+  public addRouter(route: string, router: Router ) {
     this.app.use(route, router);
   }
 }
