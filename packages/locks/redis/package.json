@@ -27,10 +27,8 @@
   "dependencies": {
     "@types/ioredis": "4.0.4",
     "ioredis": "4.3.0",
-    "@types/redlock": "3.0.2"
-  },
-  "devDependencies": {
-    "@gshell/types": "0.0.3"
+    "@types/redlock": "3.0.2",
+    "@gshell/types": "0.1.13"
   },
   "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"
 }

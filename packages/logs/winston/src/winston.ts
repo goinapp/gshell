@@ -69,15 +69,15 @@ export default class GWinston implements IGLogger {
     );
   }
 
-  error = (options: {message: string, err?: object, meta?: object}) => {
+  error = (message: string, err?: object, meta?: object) => {
 
   };
 
-  warn = (options: {message: string, meta?: object}) =>  {
+  warn = (message: string, meta?: object) =>  {
 
   };
 
-  info = (options: {message: string, meta?: object}) => {
+  info = (message: string, meta?: object) => {
 
   }
 

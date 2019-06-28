@@ -1,24 +1,24 @@
 import * as Redis from "ioredis";
 import * as Redlock from "redlock";
-import { GRedis } from '@gshell/types';
+import { IGRedis } from "@gshell/types";
 
 
-interface IRedisOptions {
+interface IGRedisOptions {
   host: string;
   port: number;
   mock?: boolean;
 }
 
-class GoinRedis implements GRedis {
+class GRedis implements IGRedis {
   public client?: Redis.Redis;
   private redlock?: Redlock;
-  private readonly options: IRedisOptions;
+  private readonly options: IGRedisOptions;
 
-  constructor(options: IRedisOptions) {
+  constructor(options: IGRedisOptions) {
     this.options = options;
   }
 
-  public async connect(): Promise<void> {
+  public async up(): Promise<void> {
     try {
       this.client = new Redis(this.options.port, this.options.host);
       this.redlock = new Redlock([this.client]);
@@ -28,31 +28,22 @@ class GoinRedis implements GRedis {
   }
 
   public async lock(resource: string, id: string, ttl = 1000): Promise<Redlock.Lock> {
-    try {
-      if (!this.redlock) {
-        throw new GoinError("Lock was not initialized");
-      }
-      const lockId: string = !id ? `locks:${resource}` : `locks:${resource}:${id}`;
-      const lock: Redlock.Lock = await this.redlock.lock(lockId, ttl);
-      logger.info(`Locked resource ${lockId}`); // TODO: Change for Goin Logging
-      return lock;
-    } catch (err) {
-      throw err;
+    if (!this.redlock) {
+      throw new GoinError("Lock was not initialized");
     }
+    const lockId: string = !id ? `locks:${resource}` : `locks:${resource}:${id}`;
+    const lock: Redlock.Lock = await this.redlock.lock(lockId, ttl);
+    return lock;
   }
 
-  public async close(): Promise<void> {
-    try {
-      if (this.client) {
-        this.client.disconnect();
-      }
-    } catch (err) {
-      throw err;
+  public async down(): Promise<void> {
+    if (this.client) {
+      this.client.disconnect();
     }
   }
 }
 
 export {
-  IRedisOptions,
-  GoinRedis,
+  IGRedisOptions as IRedisOptions,
+  GRedis,
 };

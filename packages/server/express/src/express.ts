@@ -22,7 +22,7 @@ export default class GExpress implements IGServer {
   private readonly middlewares: GExpressMiddleware[];
   private server?: Server;
 
-  readonly options: IGExpressOptions;
+  private readonly options: IGExpressOptions;
 
   constructor(options: IGExpressOptions) {
     this.options = options;
@@ -39,7 +39,7 @@ export default class GExpress implements IGServer {
 
     this.app.get("/health", (req: Request, res: Response) => {
       return res.status(200).send("OK");
-    })
+    });
     // TODO Default error handling middleware?
   }
 
@@ -53,6 +53,6 @@ export default class GExpress implements IGServer {
 
   public addRouter(params: { route?: string, router: Router }) {
     const { route = "/", router } = params;
-    this.app.use(route, router)
+    this.app.use(route, router);
   }
 }
