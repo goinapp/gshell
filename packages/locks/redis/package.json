@@ -21,27 +21,31 @@
 		"url": "https://github.com/crodriguezanton/gshell/issues"
 	},
 	"dependencies": {
-    "@gshell/types": "^0.1.13",
-    "@gshell/gerror": "^0.0.5",
+		"@gshell/gerror": "^0.0.5",
+		"@gshell/types": "^0.1.13",
 		"@types/ioredis": "4.0.4",
 		"@types/redlock": "3.0.2",
 		"ioredis": "4.3.0"
-  },
-  "devDependencies": {
-    "tslint": "5.18.0",
-    "types": "0.1.1",
-    "typescript": "3.5.2"
-  },
-  "scripts": {
-    "build:only": "tsc",
-    "prebuild": "npm run lint",
-    "build": "npm run build:only",
-    "test:only": "NODE_ENV=test nyc --reporter=lcovonly mocha --opts mocha.opts",
-    "pretest": "npm run build",
-    "test": "npm run test:only",
-    "preversion": "npm run test",
-    "postversion": "git push && git push --tags",
-    "lint:only": "tslint -c tslint.json ./src/**/*.ts",
-    "lint": "npm run lint:only"
-  }
+	},
+	"devDependencies": {
+    "@types/mocha": "5.2.7",
+		"mocha": "6.1.4",
+		"nyc": "14.1.1",
+		"tslint": "5.18.0",
+		"types": "0.1.1",
+		"typescript": "3.5.2",
+    "tsconfig-paths": "3.8.0"
+	},
+	"scripts": {
+		"build:only": "tsc",
+		"prebuild": "npm run lint",
+		"build": "npm run build:only",
+		"test:only": "NODE_ENV=test nyc --reporter=lcovonly mocha --opts mocha.opts",
+		"pretest": "npm run build",
+		"test": "npm run test:only",
+		"preversion": "npm run test",
+		"postversion": "git push && git push --tags",
+		"lint:only": "tslint -c tslint.json ./src/**/*.ts",
+		"lint": "npm run lint:only"
+	}
 }
