@@ -3,7 +3,7 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/23d13b02945b40819e195493421d1cba)](https://www.codacy.com/app/crodriguezanton/gshell?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=crodriguezanton/gshell&amp;utm_campaign=Badge_Grade)
 
-This is the monorepo containing the gshell core package and all it's plugins
+This is the monorepo containing the gshell core package and all its plugins
 
 ## About
 

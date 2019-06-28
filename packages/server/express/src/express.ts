@@ -48,10 +48,16 @@ export default class GExpress implements IGServer {
   }
 
   public async down() {
-    this.server && this.server.close();
+    this.server && this.server.close(); // tslint:disable-line
   }
 
-  public addRouter(route: string, router: Router ) {
-    this.app.use(route, router);
+  public addRouter(route: string, router: Router): void;
+  public addRouter(router: Router): void;
+  public addRouter(routeOrRouter: any, router?: Router): void {
+    if (!router) {
+      this.app.use(routeOrRouter);
+    } else {
+      this.app.use(routeOrRouter, router);
+    }
   }
 }
