@@ -1,5 +1,9 @@
+import { IGWorker } from "../core/worker";
 
-export interface IRabbitOptions {
+interface IGMessageBroker extends IGWorker {
+}
+
+export interface IGMessageBrokerOptions {
   uri: string;
   reconnection_timeout?: number;
 }

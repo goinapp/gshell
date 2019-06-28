@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@gshell/gerror": "0.0.5",
-    "@gshell/types": "^0.1.9",
+    "@gshell/types": "^0.1.13",
     "amqplib": "0.5.3"
   },
   "devDependencies": {

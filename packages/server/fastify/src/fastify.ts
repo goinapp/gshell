@@ -5,13 +5,12 @@ import * as helmet from "helmet";
 import { IGServer, IGServerOptions, GRoute, HttpMethod, GRouteOptions } from "@gshell/types/server";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import { Http2Server, Http2ServerRequest, Http2ServerResponse } from "http2";
-import { FastifyInstance } from 'fastify';
+import { FastifyInstance } from "fastify";
 
 declare type GFastifyMiddleware = (req, res, next?) => (void | Promise<void>);
 
 export type GFastifyRequest = fastify.FastifyRequest<IncomingMessage | Http2ServerRequest>;
 export type GFastifyResponse = fastify.FastifyReply<ServerResponse | Http2ServerResponse>;
-
 
 export interface IGFastifyOptions extends IGServerOptions {
   middlewares?: GFastifyMiddleware[];
@@ -20,10 +19,10 @@ export interface IGFastifyOptions extends IGServerOptions {
 
 class GRouter<T, K> {
 
-  private _routes: GRoute<T, K>[] = [];
+  private _routes: Array<GRoute<T, K>> = [];
 
   public route = (method: HttpMethod, url: string, handler: (request: T, response: K) => any, options: GRouteOptions): GRouter<T, K> => {
-    const route:GRoute<T, K> = {method, url, handler, options};
+    const route: GRoute<T, K> = {method, url, handler, options};
     this._routes.push(route);
     return this;
   }
@@ -48,14 +47,14 @@ class GRouter<T, K> {
     return this.route("DELETE", url, handler, options);
   }
 
-  public get routes(): GRoute<T, K>[] {
-    return this.routes
-  };
+  public get routes(): Array<GRoute<T, K>> {
+    return this.routes;
+  }
 }
 
 export class GFastifyRouter {
 
-  routes: GRoute<GFastifyRequest, GFastifyResponse>[];
+  public routes: Array<GRoute<GFastifyRequest, GFastifyResponse>>;
 
   constructor(router: GRouter<GFastifyRequest, GFastifyResponse>) {
     this.routes = router.routes;
@@ -68,7 +67,7 @@ export class GFastifyRouter {
         method: route.method,
         url: route.url,
         handler: route.handler,
-        ...route.options
+        ...route.options,
       });
     }
     next();
@@ -80,7 +79,7 @@ export default class GFastify implements IGServer {
   private readonly app: fastify.FastifyInstance<Server | Http2Server, IncomingMessage | Http2ServerRequest, ServerResponse | Http2ServerResponse>;
   private readonly middlewares: GFastifyMiddleware[];
 
-  readonly options: IGFastifyOptions;
+  private readonly options: IGFastifyOptions;
 
   constructor(options: IGFastifyOptions) {
     this.options = options;
@@ -91,35 +90,35 @@ export default class GFastify implements IGServer {
 
     this.app.use(morgan("combined", morganOptions));
     this.app.use(helmet());
-    this.app.register(require('fastify-swagger'), {
+    this.app.register(require("fastify-swagger"), {
       exposeRoute: true,
-      routePrefix: '/docs',
+      routePrefix: "/docs",
       swagger:  {
         info: {
           title: "Test",
           description: "Test test",
-          version: "1.0.0"
+          version: "1.0.0",
         },
-        host: 'localhost',
-        schemes: ['http'],
-        consumes: ['application/json'],
-        produces: ['application/json'],
+        host: "localhost",
+        schemes: ["http"],
+        consumes: ["application/json"],
+        produces: ["application/json"],
         securityDefinitions: {
           apiKey: {
-            type: 'apiKey',
-            name: 'apiKey',
-            in: 'header'
-          }
-        }
-      }
-    })
+            type: "apiKey",
+            name: "apiKey",
+            in: "header",
+          },
+        },
+      },
+    });
     this.middlewares.forEach((middleware) => {
       this.app.use(middleware);
     });
 
     this.app.get("/health", {},  (req: GFastifyRequest, res: GFastifyResponse): void | Promise<any> => {
       res.code(200).send("OK");
-    })
+    });
     // TODO Default error handling middleware?
   }
 

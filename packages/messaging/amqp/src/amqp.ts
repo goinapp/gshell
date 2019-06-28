@@ -1,9 +1,8 @@
 import { Channel, connect, Connection, Message } from "amqplib";
-
 import { AmqpConnectionError } from "../errors/amqp.connection.error";
 import { ConsumerError } from "../errors/consumer.error";
 import { ChannelConnectionError } from "../errors/channel.connection.error";
-import { IGLogger, IRabbitOptions, IConsumer } from "@gshell/types";
+import { IGLogger, IConsumer, IGMessageBroker, IGMessageBrokerOptions } from "@gshell/types";
 
 const MAX_RECONNECTIONS = 10;
 const RECONNECTION_TIMEOUT = 1000;
@@ -15,22 +14,22 @@ const wait = (delay: number): Promise<void> => {
       resolve();
     }, delay);
   });
-}
+};
 
-export class GAmqp {
+export class GAmqp implements IGMessageBroker {
   private connection?: Connection;
   private channels: { [index: string]: Channel } = {};
   private reconnectCount = 0;
-  private isConnected = false;
-  private readonly options: IRabbitOptions;
-  private readonly consumers: IConsumer[] = [];
   private readonly logger: IGLogger;
+  private isConnected = false;
+  private readonly options: IGMessageBrokerOptions;
+  private readonly consumers: IConsumer[] = [];
 
-  constructor(options: IRabbitOptions) {
+  constructor(options: IGMessageBrokerOptions) {
     this.options = options;
   }
 
-  public async connect(): Promise<void> {
+  public async up(): Promise<void> {
     try {
       this.connection = await connect(this.options.uri);
       this.reconnectCount = 0;
@@ -46,7 +45,7 @@ export class GAmqp {
     }
   }
 
-  public async close(): Promise<void> {
+  public async down(): Promise<void> {
     try {
       if (this.connection) {
         this.isConnected = false;
@@ -139,7 +138,7 @@ export class GAmqp {
   private reconnect = async (): Promise<void> => {
     try {
       this.logger.info("[AMQP] closing possible active connection before reconnecting");
-      await this.close();
+      await this.down();
     } catch {
       this.logger.error("[AMQP] closing the possible active connection failed");
     }
@@ -150,7 +149,7 @@ export class GAmqp {
       this.logger.error(`[AMQP] reconnecting in 1s (reconnection_count: ${this.reconnectCount})`);
       await wait(this.options.reconnection_timeout || RECONNECTION_TIMEOUT);
       ++this.reconnectCount;
-      await this.connect();
+      await this.up();
     } else {
       throw new AmqpConnectionError();
     }
