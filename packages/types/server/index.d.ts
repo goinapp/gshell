@@ -1,7 +1,6 @@
 import { IGWorker } from "../core/worker";
 
 interface IGServer extends IGWorker {
-    options: IGServerOptions;
 }
 
 interface IGServerOptions {
@@ -29,7 +28,7 @@ type GRouteOptions = {
 type GRoute<T, K> = {
   method: HttpMethod;
   url: string;
-  handler: (request: T, response: K) => any;
+  handler: (request: T, response: K) => Promise<any>;
   options?: GRouteOptions;
 }
 
