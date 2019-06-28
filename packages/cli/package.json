@@ -24,11 +24,11 @@
 		"url": "https://github.com/crodriguezanton/gshell/issues"
 	},
 	"dependencies": {
-		"chalk": "^2.4.2",
-		"inquirer": "^6.2.2",
-		"shelljs": "^0.8.3",
-		"types": "^0.1.1",
-		"typescript": "^3.5.2",
-		"yargs": "^13.2.2"
+		"chalk": "2.4.2",
+		"inquirer": "6.2.2",
+		"shelljs": "0.8.3",
+		"types": "0.1.1",
+		"typescript": "3.5.2",
+		"yargs": "13.2.2"
 	}
 }
