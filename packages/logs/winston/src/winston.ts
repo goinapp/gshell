@@ -3,65 +3,47 @@ import * as winston from "winston";
 import * as Transport from "winston-transport";
 import { LoggingWinston } from "@google-cloud/logging-winston";
 import { Format } from "logform";
-import { IGLogger } from "@gshell/types";
+import { IGLogger, IGWinstonOptions } from "@gshell/types";
 
 export default class GWinston implements IGLogger {
 
   public googleWinston: Logger;
   public logger: Logger;
 
-  private readonly options: object;
-  private readonly resourceOptions: any;
+  private transports: Transport[];
+  private readonly resourceOptions: IGWinstonOptions;
 
-  constructor(resourceOptions: any) {
-    this.googleWinston = new LoggingWinston(resourceOptions);
+  constructor(resourceOptions: IGWinstonOptions, transports: Transport[]) {
     this.resourceOptions = resourceOptions;
-    this.options = this.getLoggerConfig();
-    this.logger = winston.createLogger(this.options);
+    this.transports = transports;
+  }
+
+  public up = async () => {
+    this.googleWinston = new LoggingWinston(this.resourceOptions);
+    this.logger = winston.createLogger(this.getLoggerConfig());
+  }
+
+  public down = async () => {
+    // Not needed
   }
 
   public error = (message: string, err?: object, meta?: object) => {
-    throw new Error("Not implemented");
+    this.logger.error(message, { ...meta, ...err });
   }
 
-  public warn = (message: string, meta?: object) =>  {
-    throw new Error("Not implemented");
+  public warn = (message: string, meta?: object) => {
+    this.logger.warn(message, { ...meta });
   }
 
   public info = (message: string, meta?: object) => {
-    throw new Error("Not implemented");
+    this.logger.info(message, { ...meta });
   }
 
   private getLoggerConfig(): LoggerOptions {
     return {
-      transports: this.getTransports(),
+      transports: this.transports,
       format: this.getFormats(),
     };
-  }
-
-  private getTransports(): Transport[] {
-    switch (process.env.NODE_ENV) {
-      case "test":
-        return [
-          new winston.transports.File({
-            level: "info",
-            filename: "tests.log",
-          }),
-        ];
-      case "development":
-        return [
-          new winston.transports.Console({
-            level: "info",
-          }),
-        ];
-      case "production":
-      case "staging":
-        return [
-          this.googleWinston,
-        ];
-      default:
-        return [];
-    }
   }
 
   private getFormats(): Format {
