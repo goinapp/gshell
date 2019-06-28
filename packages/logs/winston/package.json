@@ -17,19 +17,23 @@
     "type": "git",
     "url": "git+https://github.com/crodriguezanton/gshell.git"
   },
-	"bugs": {
-		"url": "https://github.com/crodriguezanton/gshell/issues"
-	},
-	"dependencies": {
+  "bugs": {
+    "url": "https://github.com/crodriguezanton/gshell/issues"
+  },
+  "dependencies": {
     "@google-cloud/logging-winston": "0.11.0",
     "@gshell/types": "^0.1.13",
-		"logform": "2.1.2",
-		"winston": "3.2.1",
-		"winston-transport": "4.3.0"
+    "logform": "2.1.2",
+    "winston": "3.2.1",
+    "winston-transport": "4.3.0"
   },
   "devDependencies": {
+    "@types/mocha": "5.2.7",
+    "mocha": "6.1.4",
+    "nyc": "14.1.1",
     "tslint": "5.18.0",
     "types": "0.1.1",
+    "tsconfig-paths": "3.8.0",
     "typescript": "3.5.2"
   },
   "scripts": {
