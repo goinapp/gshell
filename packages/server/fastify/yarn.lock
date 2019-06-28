@@ -2,33 +2,6 @@
 # yarn lockfile v1
 
 
-"@gshell/types@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@gshell/types/-/types-0.1.4.tgz#2cbd31cba5f25d1560fde41d01599129ad28a3ce"
-  integrity sha512-cFqo8CTDUBSHUQvvwKUAO/+P9kxzqDLlLmtbyFvGf4BnGkEcz0EQi7x3QyWFm+IaS1eFE1BdSK9sZSti4WpxbQ==
-  dependencies:
-    "@types/mongodb" "^3.1.22"
-
-"@types/bson@*":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/bson/-/bson-4.0.0.tgz#9073772679d749116eb1dfca56f8eaac6d59cc7a"
-  integrity sha512-pq/rqJwJWkbS10crsG5bgnrisL8pML79KlMKQMoQwLUjlPAkrUHMvHJ3oGwE7WHR61Lv/nadMwXVAD2b+fpD8Q==
-  dependencies:
-    "@types/node" "*"
-
-"@types/mongodb@^3.1.22":
-  version "3.1.22"
-  resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-3.1.22.tgz#66f96c7acbf7135ce6295a8d6c26f1d97388a84b"
-  integrity sha512-hvNR0txBlJJAy1eZOeIDshW4dnQaC694COou4eHHaMdIcteCfoCQATD7sYNlXxNxfTc1iIbHUi7A8CAhQe08uA==
-  dependencies:
-    "@types/bson" "*"
-    "@types/node" "*"
-
-"@types/node@*":
-  version "11.13.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.0.tgz#b0df8d6ef9b5001b2be3a94d909ce3c29a80f9e1"
-  integrity sha512-rx29MMkRdVmzunmiA4lzBYJNnXsW/PhG4kMBy2ATsYaDjGGR75dCFEVVROKpNwlVdcUX3xxlghKQOeDPBJobng==
-
 "@types/swagger-schema-official@^2.0.15":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@types/swagger-schema-official/-/swagger-schema-official-2.0.17.tgz#c9086ec36ce00ae21e5a73a507c8fc94938f17e1"

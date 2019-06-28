@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@types/bluebird@*":
+  version "3.5.27"
+  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.27.tgz#61eb4d75dc6bfbce51cf49ee9bbebe941b2cb5d0"
+  integrity sha512-6BmYWSBea18+tSjjSC3QIyV93ZKAeNWGM7R6aYt1ryTZXrlHF+QLV0G2yV0viEGVyRkyQsWfMoJ0k/YghBX5sQ==
+
 "@types/body-parser@*":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.17.0.tgz#9f5c9d9bd04bb54be32d5eb9fc0d8c974e6cf58c"
@@ -23,6 +28,11 @@
   integrity sha512-4r8qa0quOvh7lGD0pre62CAb1oni1OO6ecJLGCezTmhQ8Fz50Arx9RUszryR8KlgK6avuSXvviL6yWyViQABOg==
   dependencies:
     "@types/node" "*"
+
+"@types/events@*":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
+  integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
 
 "@types/express-serve-static-core@*":
   version "4.16.7"
@@ -63,6 +73,14 @@
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
   integrity sha512-ewFXqrQHlFsgc09MK5jP5iR7vumV/BYayNC6PgJO2LPe8vrnNFyjQjSppfEngITi0qvfKtzFvgKymGheFM9UOA==
+
+"@types/redlock@3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/redlock/-/redlock-3.0.2.tgz#bfced314aa221724a7a88c45170fa7e33c6b2216"
+  integrity sha512-U7RtmT2UkJvQiOIYVh+pNixcYG9XoSbsak0BLxB549wW9Vg0F+ggLh2z9LPT+WcTmX5j7BSKCV8u4scmk7htPw==
+  dependencies:
+    "@types/bluebird" "*"
+    "@types/events" "*"
 
 "@types/serve-static@*":
   version "1.13.2"
