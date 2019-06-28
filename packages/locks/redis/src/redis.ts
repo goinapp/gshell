@@ -1,7 +1,7 @@
 import * as Redis from "ioredis";
 import * as Redlock from "redlock";
 import { IGRedis } from "@gshell/types";
-
+import GError from "@gshell/gerror";
 
 interface IGRedisOptions {
   host: string;
@@ -29,7 +29,7 @@ class GRedis implements IGRedis {
 
   public async lock(resource: string, id: string, ttl = 1000): Promise<Redlock.Lock> {
     if (!this.redlock) {
-      throw new GoinError("Lock was not initialized");
+      throw new GError("Lock was not initialized");
     }
     const lockId: string = !id ? `locks:${resource}` : `locks:${resource}:${id}`;
     const lock: Redlock.Lock = await this.redlock.lock(lockId, ttl);

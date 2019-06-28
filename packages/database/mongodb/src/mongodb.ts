@@ -24,8 +24,7 @@ export default class GMongoDB implements IGDatabase {
 
   public async down() {
     try {
-      this.client &&
-      await this.client.close();
+      this.client && await this.client.close(); // tslint:disable-line
     } catch (err) {
       throw err; // TODO: Handle exception
     }

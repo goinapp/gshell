@@ -18,11 +18,11 @@ type GRouteOptions = {
   preSerialization?: (request, response, payload, done) => any;
   handler?: (request, response) => any;
   schemaCompiler?: (schema) => any;
-  bodyLimit?: Number;
+  bodyLimit?: number;
   logLevel?: string;
   config?: any;
   version?: string;
-  prefixTrailingSlash?: boolean;
+  prefixTrailingSlash?: "slash" | "no-slash" | "both";
 }
 
 type GRoute<T, K> = {
