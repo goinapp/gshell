@@ -30,7 +30,11 @@
 		"morgan": "1.9.1"
 	},
 	"devDependencies": {
+    "@types/mocha": "5.2.7",
+		"mocha": "6.1.4",
+		"nyc": "14.1.1",
 		"tslint": "5.18.0",
+    "tsconfig-paths": "3.8.0",
 		"types": "0.1.1",
 		"typescript": "3.5.2"
 	},

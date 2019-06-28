@@ -1,0 +1,7 @@
+--no-cache
+--timeout 60000
+--require ts-node/register
+--require tsconfig-paths/register
+--full-trace
+__tests__/**/*.test.ts
+--exit

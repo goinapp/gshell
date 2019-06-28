@@ -18,7 +18,7 @@
     "dist"
   ],
   "include": [
-    "test/**/*.test.ts",
+    "__tests__/**/*.test.ts",
     "src/**/*.ts"
   ]
 }
