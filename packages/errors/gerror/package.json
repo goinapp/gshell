@@ -17,16 +17,27 @@
     "type": "git",
     "url": "git+https://github.com/gointech/gshell.git"
   },
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
   "bugs": {
     "url": "https://github.com/gointech/gshell/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@gshell/types": "^0.1.13"
+  },
   "devDependencies": {
+    "tslint": "5.18.0",
+    "types": "0.1.1",
     "typescript": "3.5.2"
   },
-  "gitHead": "4989e8e5b63307eeeb3308bd8ccc17be13ab3fe4"
+  "scripts": {
+    "build:only": "tsc",
+    "prebuild": "npm run lint",
+    "build": "npm run build:only",
+    "test:only": "NODE_ENV=test nyc --reporter=lcovonly mocha --opts mocha.opts",
+    "pretest": "npm run build",
+    "test": "npm run test:only",
+    "preversion": "npm run test",
+    "postversion": "git push && git push --tags",
+    "lint:only": "tslint -c tslint.json ./src/**/*.ts",
+    "lint": "npm run lint:only"
+  }
 }

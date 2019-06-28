@@ -1,5 +1,5 @@
 {
-  "name": "@gshell/template-simple-http-server",
+  "name": "@gshell/template-simple-fastify-server",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Ramon Pans <ramon.pans@goin.app>",

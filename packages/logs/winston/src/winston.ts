@@ -3,22 +3,34 @@ import * as winston from "winston";
 import * as Transport from "winston-transport";
 import { LoggingWinston } from "@google-cloud/logging-winston";
 import { Format } from "logform";
-import { IGLogger } from '@gshell/types';
+import { IGLogger } from "@gshell/types";
 
 export default class GWinston implements IGLogger {
 
-  constructor(resourceOptions: object) {
+  public googleWinston: Logger;
+  public logger: Logger;
+
+  private readonly options: object;
+  private readonly resourceOptions: any;
+
+  constructor(resourceOptions: any) {
     this.googleWinston = new LoggingWinston(resourceOptions);
     this.resourceOptions = resourceOptions;
     this.options = this.getLoggerConfig();
     this.logger = winston.createLogger(this.options);
   }
 
-  private readonly options: object;
-  private readonly resourceOptions: object;
+  public error = (message: string, err?: object, meta?: object) => {
+    throw new Error("Not implemented");
+  }
 
-  public googleWinston: Logger;
-  public logger: Logger;
+  public warn = (message: string, meta?: object) =>  {
+    throw new Error("Not implemented");
+  }
+
+  public info = (message: string, meta?: object) => {
+    throw new Error("Not implemented");
+  }
 
   private getLoggerConfig(): LoggerOptions {
     return {
@@ -34,13 +46,13 @@ export default class GWinston implements IGLogger {
           new winston.transports.File({
             level: "info",
             filename: "tests.log",
-          })
+          }),
         ];
       case "development":
         return [
           new winston.transports.Console({
             level: "info",
-          })
+          }),
         ];
       case "production":
       case "staging":
@@ -59,7 +71,7 @@ export default class GWinston implements IGLogger {
     });
     return winston.format.combine(
       winston.format.label({
-        label: this.resourceOptions['resource'].labels.container_name
+        label: this.resourceOptions.resource.labels.container_name,
       }),
       winston.format.timestamp(),
       winston.format.prettyPrint(),
@@ -67,18 +79,6 @@ export default class GWinston implements IGLogger {
       winston.format.json(),
       consoleFormat,
     );
-  }
-
-  error = (message: string, err?: object, meta?: object) => {
-
-  };
-
-  warn = (message: string, meta?: object) =>  {
-
-  };
-
-  info = (message: string, meta?: object) => {
-
   }
 
 }

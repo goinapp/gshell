@@ -1,5 +1,6 @@
-export * from "./server/index";
-export *from "./logs/index";
-export * from "./database/index";
-export * from "./messaging/index";
+export * from "./server";
+export *from "./logs";
+export * from "./database";
+export * from "./messaging";
 export * from "./core/worker";
+export * from "./locks";
