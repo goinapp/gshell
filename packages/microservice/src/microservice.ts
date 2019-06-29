@@ -29,11 +29,11 @@ export class GMicroservice implements IGMicroservice {
     );
   }
 
-  public service<T>(service: string): T {
+  public service<T extends IGWorker>(service: string): T {
     const serv = this.services[service];
     if (!serv) {
       throw new GError("service not found", 404);
     }
-    return (serv as unknown) as T;
+    return serv as T;
   }
 }

@@ -1,5 +1,7 @@
+import { IGWorker } from "@gshell/types/core/worker";
+
 export interface IGMicroservice {
   start(): Promise<void>;
   stop(): Promise<void>;
-  service<T>(service: string): T;
+  service<T extends IGWorker>(service: string): T;
 }
