@@ -1,0 +1,52 @@
+{
+	"name": "@gshell/mixpanel",
+	"version": "0.0.1",
+	"description": "> TODO: description",
+	"author": "Sergi Canal <sergi.canal@goin.app>",
+	"homepage": "https://github.com/gointech/gshell#README.md",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"directories": {
+		"src": "src",
+		"test": "__tests__"
+	},
+	"files": [
+		"dist/"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gointech/gshell.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gointech/gshell/issues"
+	},
+	"dependencies": {
+		"@gshell/gerror": "^0.0.5",
+		"@gshell/types": "^0.1.13",
+		"amqplib": "0.5.3",
+		"request": "^2.88.0",
+		"request-promise": "^4.2.4"
+	},
+	"devDependencies": {
+		"@types/mocha": "5.2.7",
+		"@types/node": "12.0.10",
+		"mocha": "6.1.4",
+		"nyc": "14.1.1",
+		"tsconfig-paths": "3.8.0",
+		"tslint": "5.18.0",
+		"types": "0.1.1",
+		"typescript": "3.5.2"
+	},
+	"scripts": {
+		"build:only": "tsc",
+		"prebuild": "npm run lint",
+		"build": "npm run build:only",
+		"test:only": "NODE_ENV=test nyc --reporter=lcovonly mocha --opts mocha.opts",
+		"pretest": "npm run build",
+		"test": "npm run test:only",
+		"preversion": "npm run test",
+		"postversion": "git push && git push --tags",
+		"lint:only": "tslint -c tslint.json ./src/**/*.ts",
+		"lint": "npm run lint:only"
+	}
+}
