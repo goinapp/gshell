@@ -32,7 +32,7 @@ export class GMicroservice implements IGMicroservice {
   public service<T extends IGWorker>(service: string): T {
     const serv = this.services[service];
     if (!serv) {
-      throw new GError("service not found", 404);
+      throw new GError(service + " service not found", 404);
     }
     return serv as T;
   }
