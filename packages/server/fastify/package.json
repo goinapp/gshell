@@ -24,7 +24,7 @@
     "@gshell/types": "^0.1.13",
     "@types/helmet": "0.0.43",
     "@types/morgan": "1.7.35",
-    "fastify": "2.5.0",
+    "fastify": "2.15.1",
     "fastify-swagger": "2.4.0",
     "helmet": "3.18.0",
     "morgan": "1.9.1"
