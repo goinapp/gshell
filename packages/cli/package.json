@@ -29,6 +29,6 @@
 		"shelljs": "0.8.3",
 		"types": "0.1.1",
 		"typescript": "3.5.2",
-		"yargs": "13.2.2"
+		"yargs": "16.0.0"
 	}
 }
