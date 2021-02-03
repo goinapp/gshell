@@ -12,10 +12,10 @@
     helmet "3.16.0"
     morgan "1.9.1"
 
-"@gshell/mongodb@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@gshell/mongodb/-/mongodb-0.0.4.tgz#d570c6677e5498cd51bb8065c0f9f6f857852252"
-  integrity sha512-9VVS98c2pfg7Zxe6+SW8bebPD37Lxx824u0VxSxxNyGbGMm3one8spVlv/PPeyKXai3Va6Ipfdv03e79vJV9LQ==
+"@gshell/mongodb@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@gshell/mongodb/-/mongodb-0.0.7.tgz#1edbabeda9127d6af77737aacfb29bd04d29fd88"
+  integrity sha512-6m2HyY/DNbwOmRw6GQQIZUBAksHK17e3rEqCcRqdGUO6bKjKeu8vbafWiK6AHKsjSUcEcDUDgK7sqoa8gnzJbA==
   dependencies:
     "@gshell/types" "0.0.3"
     mongodb "3.2.3"
